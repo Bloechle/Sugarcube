@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<ToolBar prefHeight="113.0" prefWidth="1124.0" styleClass="sc-toolbar" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="105.0" prefWidth="90.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="File " BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="88.0" prefWidth="89.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="openBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <Button fx:id="saveBt" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+                     <styleClass>
+                        <String fx:value="sc-button" />
+                        <String fx:value="sc-popup-bt" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="backBt" layoutX="46.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <Button fx:id="localBt" layoutX="46.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <BorderPane prefHeight="105.0" prefWidth="157.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="Bounding Box" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="88.0" prefWidth="166.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="yField" layoutX="13.0" layoutY="45.0" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 12;" />
+                  <TextField layoutX="13.0" layoutY="-1.0" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 12;" fx:id="xField" />
+                  <TextField fx:id="wField" layoutX="110.0" layoutY="-1.0" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 12;" />
+                  <TextField fx:id="hField" layoutX="110.0" layoutY="45.0" prefHeight="40.0" prefWidth="80.0" style="-fx-font-size: 12;" />
+                  <Label layoutX="1.0" layoutY="11.0" text="x" />
+                  <Label layoutX="1.0" layoutY="57.0" text="y" />
+                  <Label layoutX="98.0" layoutY="11.0" text="w" />
+                  <Label layoutX="99.0" layoutY="57.0" text="h" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="105.0" styleClass="ribbon-group">
+         <center>
+            <AnchorPane prefHeight="88.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="modelBt" layoutX="3.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" styleClass="sc-button" text="Document Model..." />
+                  <ToggleButton fx:id="applyModelTg" layoutX="3.0" layoutY="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" selected="true" text="Apply Model" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <Label styleClass="sc-label" text="Model" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <BorderPane layoutX="382.0" layoutY="10.0" prefHeight="105.0" styleClass="ribbon-group">
+         <center>
+            <AnchorPane prefHeight="88.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ToggleButton fx:id="lineModeTg" layoutX="2.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Textline Mode" />
+                  <ToggleButton fx:id="tableModeTg" layoutX="2.0" layoutY="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Table Mode" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <Label styleClass="sc-label" text="Mode" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <BorderPane layoutX="445.0" layoutY="10.0" prefHeight="105.0" styleClass="ribbon-group">
+         <center>
+            <AnchorPane prefHeight="88.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ListView fx:id="tablerList" prefHeight="86.0" prefWidth="160.0" />
+                  <Button fx:id="detectTableBt" layoutX="166.0" layoutY="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text=" Detect" />
+                  <ToggleButton fx:id="autoTableTg" layoutX="166.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Auto Detect" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <Label styleClass="sc-label" text="Table" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <BorderPane layoutX="551.0" layoutY="10.0" prefHeight="105.0" styleClass="ribbon-group">
+         <center>
+            <AnchorPane prefHeight="88.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ToggleButton fx:id="playBt" layoutY="44.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <Label styleClass="sc-label" text="Batch" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <BorderPane prefHeight="105.0" prefWidth="22.0" styleClass="ribbon-group">
+         <right>
+            <AnchorPane prefHeight="88.0" prefWidth="21.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Slider fx:id="opacitySlider" layoutY="-1.0" majorTickUnit="50.0" min="-100.0" orientation="VERTICAL" prefHeight="86.0" prefWidth="20.0" />
+               </children>
+            </AnchorPane>
+         </right>
+         <bottom>
+            <Label styleClass="sc-label" text="🌗" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+  </items>
+   <padding>
+      <Insets left="8.0" top="8.0" />
+   </padding>
+</ToolBar>

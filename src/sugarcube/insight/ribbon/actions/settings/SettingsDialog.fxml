@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="rootPane" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+   </padding>
+   <center>
+      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Display">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" spacing="5.0">
+                           <children>
+                              <CheckBox fx:id="showText" mnemonicParsing="false" selected="true" text="Show text content" />
+                              <CheckBox fx:id="showImages" mnemonicParsing="false" selected="true" text="Show bitmap images" />
+                              <CheckBox fx:id="showPaths" mnemonicParsing="false" selected="true" text="Show vector graphics" />
+                              <CheckBox fx:id="applyFonts" mnemonicParsing="false" selected="true" text="Apply text fonts">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="applyClips" mnemonicParsing="false" selected="true" text="Apply clipping paths">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="highRuns" mnemonicParsing="false" text="Highlight text runs">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="highClips" layoutX="10.0" layoutY="120.0" mnemonicParsing="false" text="Highlight clipping paths" />
+                              <CheckBox fx:id="highPaths" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" text="Highlight vector graphics" />
+                           </children>
+                        </VBox>
+                        <Spinner fx:id="nbOfLeaves" layoutX="14.0" layoutY="228.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

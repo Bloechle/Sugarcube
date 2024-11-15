@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="62.0" prefWidth="324.0" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox fx:id="transparentCheck" mnemonicParsing="false" text="Transparent Text (Export OCR Results)" />
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <Button fx:id="convertBt" mnemonicParsing="false" prefHeight="50.0" text="Convert to PDF" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

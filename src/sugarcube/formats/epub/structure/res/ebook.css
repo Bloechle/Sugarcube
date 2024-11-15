@@ -1,0 +1,19 @@
+.sc-block {
+	display: block;
+}
+
+.sc-none {
+	display:none;
+}
+
+.sc-transparent {
+	opacity: 0;
+}
+
+.sc-opaque {
+	opacity: 1;
+}
+
+.sc-link-box {
+	
+}

@@ -1,0 +1,12 @@
+.root {
+	-fx-focus-color: transparent;
+}
+
+.shape-glyph {
+	-fx-border-width: 2px;
+	-fx-border-color: transparent;
+}
+
+.shape-glyph:hover {	 
+	-fx-border-color: "#4682B4";
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane prefHeight="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="OCR Path" />
+                  <TextField fx:id="hotfolderField" minHeight="40.0" prefHeight="40.0" prefWidth="300.0" promptText="&gt; OCR folder path" />
+                  <Button fx:id="hotfolderBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="155.0" text="Choose OCR Folder" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" spacing="5.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="User ID" />
+                  <TextField fx:id="userID" minHeight="40.0" prefHeight="40.0" prefWidth="460.0" promptText="&gt; user id" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="55.0" spacing="5.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Email Address" />
+                  <TextField fx:id="userEmail" minHeight="40.0" prefHeight="40.0" prefWidth="460.0" promptText="&gt; email address" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="100.0" spacing="5.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="100.0" text="Working Directory" />
+                  <TextField fx:id="userDir" minHeight="40.0" prefHeight="40.0" prefWidth="460.0" promptText="&gt; C:\sugarcube\" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

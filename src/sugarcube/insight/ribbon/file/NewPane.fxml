@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="447.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView fx:id="paperList" layoutY="17.0" prefHeight="413.0" prefWidth="217.0" />
+      <Group layoutX="11.0" layoutY="41.0">
+         <children>
+            <ComboBox fx:id="numberCombo" layoutX="221.0" layoutY="351.0" prefHeight="40.0" prefWidth="94.0" />
+         </children>
+      </Group>
+      <Label text="Paper Selection" />
+      <AnchorPane fx:id="previewPane" layoutX="229.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="217.0" />
+      <Group layoutX="-1.0">
+         <children>
+            <Label layoutX="316.0" layoutY="28.0" text="x" />
+            <TextField fx:id="heightField" layoutX="329.0" layoutY="18.0" prefHeight="40.0" prefWidth="77.0" />
+            <Label layoutX="231.0" text="Paper Size (width x height)" />
+            <TextField fx:id="widthField" layoutX="231.0" layoutY="18.0" prefHeight="40.0" prefWidth="77.0" />
+         </children>
+      </Group>
+      <Button fx:id="createBt" layoutX="336.0" layoutY="391.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" style="-fx-base: yellowgreen;" text="Create !" />
+      <Label layoutX="231.0" layoutY="373.0" text="Number of pages" />
+      <Group layoutX="-1.0" layoutY="-12.0">
+         <children>
+            <RadioButton fx:id="portraitRadio" layoutX="231.0" layoutY="83.0" mnemonicParsing="false" text="Portrait">
+               <toggleGroup>
+                  <ToggleGroup fx:id="orientationGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="landscapeRadio" layoutX="314.0" layoutY="83.0" mnemonicParsing="false" text="Landscape" toggleGroup="$orientationGroup" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

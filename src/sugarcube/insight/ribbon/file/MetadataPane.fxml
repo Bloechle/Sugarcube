@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="rootPane" prefHeight="572.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <Button fx:id="exportBt" mnemonicParsing="false" prefHeight="50.0" text="Export Metadata (.xml)" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </bottom>
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="542.0" prefWidth="331.0">
+               <children>
+                  <TextField fx:id="titel" layoutX="78.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; book title">
+      </TextField>
+                  <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="6.0" prefHeight="27.0" prefWidth="74.0" text="Title">
+      </Label>
+                  <TextField fx:id="author" layoutX="78.0" layoutY="41.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; author, creator">
+      </TextField>
+                  <Label alignment="CENTER_RIGHT" layoutX="-12.0" layoutY="47.0" prefHeight="27.0" prefWidth="74.0" text="Author">
+      </Label>
+                  <TextField fx:id="subject" layoutX="78.0" layoutY="82.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; subject keywords">
+      </TextField>
+                  <Label alignment="CENTER_RIGHT" layoutX="-10.0" layoutY="88.0" prefHeight="27.0" prefWidth="74.0" text="Subject">
+      </Label>
+                  <TextField fx:id="identifier" layoutX="78.0" layoutY="292.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; isbn, id,...">
+      </TextField>
+                  <Label alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="173.0" prefHeight="27.0" prefWidth="74.0" text="Description">
+      </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="298.0" prefHeight="27.0" prefWidth="74.0" text="Identifier">
+      </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="235.0" layoutY="340.0" prefHeight="27.0" prefWidth="74.0" text="Language">
+      </Label>
+                  <TextField fx:id="rights" layoutX="78.0" layoutY="374.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; all rights reserved...">
+      </TextField>
+                  <Label alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="381.0" prefHeight="27.0" prefWidth="74.0" text="Rights">
+      </Label>
+                  <Button fx:id="imageBt" layoutX="78.0" layoutY="421.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="132.0" text="Selet Cover Image..." />
+                  <TextArea fx:id="description" layoutX="78.0" layoutY="123.0" prefHeight="127.0" prefWidth="360.0" promptText="&gt; detailed book description" />
+                  <Label alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="257.0" prefHeight="27.0" prefWidth="74.0" text="Publisher" />
+                  <TextField fx:id="publisher" layoutX="78.0" layoutY="251.0" prefHeight="40.0" prefWidth="360.0" promptText="&gt; publisher, company" />
+                  <ComboBox fx:id="pageCombo" layoutX="323.0" layoutY="422.0" prefHeight="40.0" prefWidth="115.0" />
+                  <TextField fx:id="date" layoutX="78.0" layoutY="333.0" prefHeight="40.0" prefWidth="158.0" promptText="&gt; year of publication" />
+                  <Label alignment="CENTER_RIGHT" layoutX="-4.0" layoutY="340.0" prefHeight="27.0" prefWidth="74.0" text="Date" />
+                  <ComboBox fx:id="language" editable="true" layoutX="323.0" layoutY="334.0" prefHeight="40.0" prefWidth="115.0" promptText="fr - french" />
+                  <Label layoutX="218.0" layoutY="433.0" text="or set cover as" />
+                  <Button fx:id="importBt" layoutX="78.0" layoutY="482.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="362.0" text="Import Metadata from XML" />
+               </children>
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

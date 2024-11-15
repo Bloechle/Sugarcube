@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+<ToolBar prefHeight="113.0" prefWidth="1310.0" styleClass="sc-toolbar" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+      <BorderPane prefHeight="105.0" prefWidth="90.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="File " BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="88.0" prefWidth="89.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="openBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <Button fx:id="saveBt" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+                     <styleClass>
+                        <String fx:value="sc-button" />
+                        <String fx:value="sc-popup-bt" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="backBt" layoutX="46.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <Button fx:id="localBt" layoutX="46.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <BorderPane prefHeight="105.0" prefWidth="243.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="Font " BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="88.0" prefWidth="272.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ComboBox fx:id="fontBox" layoutX="-1.0" prefHeight="40.0" prefWidth="174.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="boldBt" layoutX="-1.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="italicBt" layoutX="44.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="underBt" layoutX="89.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="subBt" layoutX="179.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="supBt" layoutX="224.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+                  <ComboBox fx:id="sizeBox" layoutX="178.0" prefHeight="40.0" prefWidth="86.0" styleClass="sc-button" />
+                  <ToggleButton fx:id="strikeBt" layoutX="134.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="paragraphPane" prefHeight="105.0" prefWidth="177.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="Paragraph " BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="86.0" prefWidth="164.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="justifyBt" layoutX="135.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="rightBt" layoutX="90.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="leftBt" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="centerBt" layoutX="45.0" layoutY="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="sc-button">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </ToggleButton>
+                  <ComboBox fx:id="interlineBt" layoutX="25.0" prefHeight="40.0" prefWidth="60.0" styleClass="sc-button" />
+                  <ComboBox fx:id="charspaceBt" layoutX="114.0" prefHeight="40.0" prefWidth="61.0" styleClass="sc-button" />
+                  <Label fx:id="interlineLabel" prefHeight="40.0" prefWidth="25.0" />
+                  <Label fx:id="charspaceLabel" layoutX="90.0" prefHeight="40.0" prefWidth="25.0" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <BorderPane prefHeight="105.0" prefWidth="213.0" styleClass="ribbon-group">
+         <bottom>
+            <Label styleClass="sc-label" text="Fill &amp; Stroke " BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="88.0" prefWidth="211.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <ColorPicker fx:id="fillBt" layoutX="42.0" prefHeight="40.0" prefWidth="50.0" styleClass="sc-button" />
+                  <ColorPicker fx:id="strokeBt" layoutX="42.0" layoutY="45.0" prefHeight="40.0" prefWidth="50.0" styleClass="sc-button" />
+                  <Label layoutX="20.0" layoutY="12.0" text="Fill" />
+                  <Label layoutX="2.0" layoutY="57.0" text="Stroke" />
+                  <ComboBox fx:id="penBox" layoutX="130.0" layoutY="-1.0" prefHeight="40.0" prefWidth="80.0" styleClass="sc-button" />
+                  <Label layoutX="93.0" layoutY="11.0" text="Width" />
+                  <ComboBox fx:id="dashBox" layoutX="130.0" layoutY="44.0" prefHeight="40.0" prefWidth="80.0" styleClass="sc-button" />
+                  <Label layoutX="98.0" layoutY="55.0" text="Dash" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+  </items>
+   <padding>
+      <Insets left="8.0" top="8.0" />
+   </padding>
+</ToolBar>

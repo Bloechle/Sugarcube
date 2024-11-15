@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="rootPane" prefHeight="440.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+   </padding>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <ProgressBar fx:id="progressBar" prefHeight="10.0" progress="0.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <BorderPane BorderPane.alignment="CENTER">
+               <left>
+                  <Button fx:id="prevFolderBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Button fx:id="nextFolderBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+               </right>
+               <center>
+                  <Label fx:id="folderLabel" text="no folder found" BorderPane.alignment="CENTER" />
+               </center>
+               <BorderPane.margin>
+                  <Insets top="2.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </center>
+         <bottom>
+            <BorderPane BorderPane.alignment="CENTER">
+               <left>
+                  <Button fx:id="prevDocBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Button fx:id="nextDocBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+               </right>
+               <center>
+                  <Label fx:id="fileLabel" text="no file found" BorderPane.alignment="CENTER" />
+               </center>
+               <BorderPane.margin>
+                  <Insets top="2.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+   </bottom>
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <TextField fx:id="searchField" prefHeight="40.0" promptText="&gt; text, .class, #id, @type" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <Button fx:id="searchBt" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="2.0" />
+               </BorderPane.margin></Button>
+         </right>
+         <bottom>
+            <HBox spacing="2.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="caseTg" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" selected="true" text="Aa" />
+                  <ToggleButton fx:id="spaceTg" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" selected="true" text="␣" />
+                  <ToggleButton fx:id="accentTg" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="äé" />
+                  <Label prefHeight="30.0" prefWidth="10.0" />
+                  <ToggleButton fx:id="allTg" layoutX="40.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" selected="true" text="&lt;#&gt;">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="pageGroup" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="prevTg" layoutX="100.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="&lt;#" toggleGroup="$pageGroup" />
+                  <ToggleButton fx:id="currentTg" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="#" toggleGroup="$pageGroup" />
+                  <ToggleButton fx:id="nextTg" layoutX="90.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="#&gt;" toggleGroup="$pageGroup" />
+               </children>
+               <padding>
+                  <Insets bottom="2.0" top="2.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </top>
+</BorderPane>

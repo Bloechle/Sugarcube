@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.3210702341137124" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <ListView fx:id="fontList" />
+            <SplitPane dividerPositions="0.75" orientation="VERTICAL" prefHeight="281.0" prefWidth="365.0">
+              <items>
+                  <BorderPane prefHeight="297.0" prefWidth="538.0">
+                     <center>
+                        <ScrollPane BorderPane.alignment="CENTER">
+                           <content>
+                              <FlowPane fx:id="glyphsPane" hgap="10.0" prefWrapLength="600.0" vgap="10.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding></FlowPane>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <top>
+                        <AnchorPane prefHeight="165.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="fontnameLabel" layoutX="3.0" layoutY="4.0">
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="weightChoice" layoutX="4.0" layoutY="60.0" prefHeight="40.0" prefWidth="100.0" />
+                              <ChoiceBox fx:id="styleChoice" layoutX="116.0" layoutY="60.0" prefHeight="40.0" prefWidth="100.0" />
+                              <Label layoutX="5.0" layoutY="41.0" text="Weight" />
+                              <Label layoutX="117.0" layoutY="41.0" text="Style" />
+                              <Label layoutX="232.0" layoutY="41.0" text="Ascent" />
+                              <Label layoutX="306.0" layoutY="41.0" text="Descent" />
+                              <TextField fx:id="ascentField" layoutX="231.0" layoutY="60.0" prefHeight="40.0" prefWidth="60.0" />
+                              <TextField fx:id="descentField" layoutX="306.0" layoutY="60.0" prefHeight="40.0" prefWidth="60.0" />
+                              <Button fx:id="updateBt" layoutX="233.0" layoutY="111.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="133.0" text="Update Font" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                              <TextField fx:id="charField" layoutX="6.0" layoutY="111.0" prefHeight="40.0" prefWidth="98.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextField>
+                              <Button fx:id="charBt" layoutX="117.0" layoutY="111.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Select Char" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                              <Label fx:id="codeLabel" layoutX="382.0" layoutY="111.0" prefHeight="40.0" prefWidth="83.0" />
+                              <Label fx:id="widthLabel" layoutX="382.0" layoutY="60.0" prefHeight="40.0" prefWidth="83.0" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </BorderPane.margin>
+                        </AnchorPane>
+                     </top>
+                  </BorderPane>
+                  <TextArea fx:id="pathArea" wrapText="true" />
+              </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

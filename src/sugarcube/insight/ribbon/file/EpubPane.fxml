@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane prefHeight="580.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="33.0" prefWidth="600.0" spacing="50.0">
+               <children>
+                  <RadioButton fx:id="fixedRadio" mnemonicParsing="false" selected="true" text="Fixed Layout">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="layoutGroup" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="liquidRadio" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Liquid Layout" toggleGroup="$layoutGroup">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="80.0" prefWidth="600.0">
+               <children>
+                  <Slider fx:id="jpegSlider" blockIncrement="1.0" layoutX="11.0" layoutY="2.0" majorTickUnit="5.0" min="75.0" minorTickCount="4" prefHeight="38.0" prefWidth="328.0" showTickLabels="true" showTickMarks="true" value="95.0" />
+                  <Label fx:id="jpegLabel" layoutX="348.0" layoutY="1.0" text="Image quality (JPEG)" />
+                  <CheckBox fx:id="rasterizeCheck" layoutX="10.0" layoutY="55.0" mnemonicParsing="false" text="Convert vector graphics (SVG) to bitmap image (JPG, PNG)" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="fixedPane" prefHeight="73.0" prefWidth="600.0">
+               <children>
+                  <CheckBox fx:id="ocrVectorCheck" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Replace Bitmaps with Detected OCR Fonts" />
+                  <CheckBox fx:id="embedFontCheck" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" text="Embed fonts in each page" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="liquidPane" prefHeight="244.0" prefWidth="444.0">
+               <children>
+                  <TextField fx:id="splitField" layoutX="118.0" layoutY="5.0" prefHeight="25.0" prefWidth="229.0" promptText="&gt; h1 (default)" />
+                  <Label layoutX="10.0" layoutY="9.0" text="Split styles" />
+                  <Label layoutX="10.0" layoutY="46.0" text="Skip styles" />
+                  <TextField fx:id="skipField" layoutX="118.0" layoutY="42.0" prefHeight="25.0" prefWidth="229.0" promptText="&gt; none (default)" />
+                  <Slider fx:id="fontsizeSlider" blockIncrement="1.0" layoutX="113.0" layoutY="81.0" majorTickUnit="5.0" max="10.0" min="-10.0" minorTickCount="4" prefHeight="38.0" prefWidth="236.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" />
+                  <Label layoutX="9.0" layoutY="81.0" text="Adjust font size" />
+                  <Label fx:id="fontsizeLabel" layoutX="352.0" layoutY="90.0" text="pt" />
+                  <CheckBox fx:id="justifyCheck" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" text="justify paragraphs" />
+                  <Label layoutX="10.0" layoutY="132.0" text="Table of contents depth" />
+                  <Slider fx:id="depthSlider" blockIncrement="1.0" layoutX="148.0" layoutY="130.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="160.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="4.0" />
+                  <CheckBox fx:id="seqNavCheck" layoutX="10.0" layoutY="199.0" mnemonicParsing="false" selected="true" text="add inter sequence navigation" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button fx:id="convertBt" mnemonicParsing="false" prefHeight="50.0" text="Convert to ePub (.epub)" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,9 @@
+.file-big {
+	-fx-font-size: 40px;
+}
+
+.button
+{
+	-fx-border-color: rgba(255,255, 255, 0.2);
+}
+
