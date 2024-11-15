@@ -174,12 +174,15 @@ public class EPubContentOPF extends XmlNodeProps
   public Spine spine;
   public Guide guide;
 
-  public EPubContentOPF(EPubDocument epub, Metadata metadata, Manifest manifest, Spine spine, Guide guide)
+  public EPubContentOPF(EPubDocument epub)
   {
     super(TAG);
     this.epub = epub;
+  }
 
-//    boolean isEpub = epub.writer.props.isEpub();
+  public EPubContentOPF init( Metadata metadata, Manifest manifest, Spine spine, Guide guide)
+  {
+    //    boolean isEpub = epub.writer.props.isEpub();
     this.addAttributes("xmlns", "http://www.idpf.org/2007/opf", "unique-identifier", BOOK_ID, "version", "3.0", "prefix", RENDITION_IBOOKS);
 
     this.metadata = metadata == null ? new Metadata() : metadata;
@@ -191,6 +194,8 @@ public class EPubContentOPF extends XmlNodeProps
       this.guide = null;
 
     this.addChildren(this.metadata, this.manifest, this.spine, this.guide);
+    return this;
   }
+
   
 }

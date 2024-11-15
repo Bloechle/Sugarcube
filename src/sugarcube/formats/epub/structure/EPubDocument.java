@@ -44,7 +44,7 @@ public class EPubDocument extends OCDNode
     this.bookIdentifier = "urn:uuid:" + UUID.nameUUIDFromBytes(uuid.getBytes());
     this.container = new EPupContainer();
     this.ibookOptions = new IBookDisplayOptions(writer.props);
-    this.opf = new EPubContentOPF(this, null, null, null, null);
+    this.opf = new EPubContentOPF(this).init( null, null, null, null);
   }
 
   public EPubDocument updateNavigation(OCDNavigation ocdNav)
@@ -65,7 +65,7 @@ public class EPubDocument extends OCDNode
 
   public EPubDocument reopf()
   {
-    this.opf = new EPubContentOPF(this, null, opf.manifest, null, null);
+    this.opf = new EPubContentOPF(this).init(null, opf.manifest, null, null);
     return this;
   }
 
