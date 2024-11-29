@@ -5,7 +5,7 @@ import sugarcube.common.ui.gui.TreeRenderer3;
 import sugarcube.formats.pdf.reader.pdf.node.PDFNode;
 import sugarcube.formats.pdf.reader.pdf.object.PDFDictionary;
 import sugarcube.formats.pdf.reader.pdf.object.PDFObject;
-import sugarcube.resources.pdf.tree.ResTree;
+import sugarcube.formats.pdf.resources.pdf.tree.ResTree;
 
 public class PDFTreeRenderer extends TreeRenderer3
 {

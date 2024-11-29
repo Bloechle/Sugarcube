@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sugarcube.formats.pdf.reader.pdf.node.font;
 
 import sugarcube.common.data.collections.Unicodes;

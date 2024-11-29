@@ -88,11 +88,6 @@ public class FxText extends Text implements FxIcon
         return icon(Icon.FONT_AWESOME_NAME, size, color);
     }
 
-    public FxText materialIcon(int size, Color3 color)
-    {
-        return icon(Icon.FONT_MATERIAL_NAME, size, color);
-    }
-
     public FxText icon(String fontFamily, int size, Color3 color)
     {
         this.setStyle("-fx-base: " + color.cssHexValue() + "; -fx-stroke-width: 0; -fx-font-family: " + fontFamily + "; -fx-font-size: " + size + ";"

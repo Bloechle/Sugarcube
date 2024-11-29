@@ -4,7 +4,7 @@ import sugarcube.common.system.log.Log;
 import sugarcube.formats.pdf.reader.pdf.node.font.CMapReader;
 import sugarcube.formats.pdf.reader.pdf.object.PDFDictionary;
 import sugarcube.formats.pdf.reader.pdf.object.PDFObject;
-import sugarcube.resources.pdf.encoding.cmap.RS_CMAP;
+import sugarcube.formats.pdf.resources.pdf.encoding.cmap.RS_CMAP;
 
 public class CIDSystemInfo
 {

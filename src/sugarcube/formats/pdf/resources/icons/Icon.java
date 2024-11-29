@@ -25,23 +25,13 @@ public class Icon implements Unjammable
 {
 
   public static final String FONT_AWESOME_NAME = "FontAwesome";
-  public static final String FONT_MATERIAL_NAME = "Material Design Icons";
-
   public static final String FONT_AWESOME_FILENAME = "FontAwesome.otf";
-  public static final String FONT_MATERIAL_FILENAME = "MaterialIcons-Regular.ttf";
 
   static
   {
     try
     {
       Font.loadFont(Class3.Path(Icon.class, FONT_AWESOME_FILENAME), 10.0);
-    } catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-    try
-    {
-      // Font.loadFont(Class3.Path(R3_AWE.class, FONT_MATERIAL_FILENAME), 10.0);
     } catch (Exception e)
     {
       e.printStackTrace();
@@ -617,31 +607,9 @@ public class Icon implements Unjammable
 
   private Icon(Character character)
   {
-    this(character, 0);
-  }
-
-  private Icon(Character character, int font)
-  {
-    this.character = character;
-    switch (font)
-    {
-    case 0:
+      this.character = character;
       this.font = FONT_AWESOME_NAME;
       AWESOME_ICONS.put(character.toString(), this);
-      break;
-    case 1:
-      this.font = FONT_MATERIAL_NAME;
-      MATERIAL_ICONS.put(character.toString(), this);
-      break;
-    default:
-      this.font = FONT_AWESOME_NAME;
-      break;
-    }
-  }
-
-  public boolean isMaterial()
-  {
-    return FONT_MATERIAL_NAME.equals(font);
   }
 
   public Character getChar()

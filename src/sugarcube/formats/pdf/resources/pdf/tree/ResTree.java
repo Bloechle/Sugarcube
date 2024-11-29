@@ -1,5 +1,5 @@
 
-package sugarcube.resources.pdf.tree;
+package sugarcube.formats.pdf.resources.pdf.tree;
 
 
 public class ResTree

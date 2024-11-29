@@ -1,4 +1,4 @@
-package sugarcube.resources.pdf.encoding.cmap;
+package sugarcube.formats.pdf.resources.pdf.encoding.cmap;
 
 import java.io.InputStream;
 
