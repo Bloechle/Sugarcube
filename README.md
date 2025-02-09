@@ -8,6 +8,7 @@ Dexter is a powerful Java library for working with PDFs, proprietary OCD file fo
     - Read and write PDF documents.
     - Extract PDF content and convert it into OCD, a proprietary structured format.
     - Convert PDFs to Fixed Layout ePub (EPUB3 format).
+    - Extract PDF content and convert it into JSON (Jexter project)
 
 - **OCD Format**:
     - A structured format optimized for specific workflows.
