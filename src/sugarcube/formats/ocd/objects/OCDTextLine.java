@@ -3,6 +3,8 @@ package sugarcube.formats.ocd.objects;
 import sugarcube.common.data.collections.IntOccurrences;
 import sugarcube.common.data.collections.Occurrences;
 import sugarcube.common.data.collections.Str;
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.graphics.geom.Coords;
 import sugarcube.common.graphics.geom.Line3;
 import sugarcube.common.graphics.geom.Point3;
@@ -604,6 +606,29 @@ public class OCDTextLine extends OCDGroup<OCDText>
   {
     this.shift(maxX - bounds().maxX(), 0);
     return this;
+  }
+
+  public JsonMap toJson() {
+    JsonMap json = new JsonMap();
+
+    json.put("class", "TextLine");
+    json.put("type", "group");
+    json.put("fontName", this.fontName());
+    json.put("fontSize", this.fontSize());
+    json.put("content", this.stringValue());
+
+    writeBoundsToJson(json);
+
+    json.put("size", this.nodes.size());
+    JsonArray textsArray = new JsonArray();
+
+    for (OCDText text : this) {
+      textsArray.add(text.toJson());
+    }
+
+    json.put("texts", textsArray);
+
+    return json;
   }
 
   @Override

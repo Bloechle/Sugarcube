@@ -1,5 +1,7 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.collections.Map3;
 import sugarcube.common.data.collections.Set3;
@@ -379,6 +381,16 @@ public class OCDAnnotations extends OCDNode implements Iterable<OCDAnnot>
     for (OCDAnnot annot : this)
       copy.addAnnotation(annot.copy());
     return copy;
+  }
+
+  public JsonArray toJson() {
+    // Annotations collection
+    JsonArray annotationsArray = new JsonArray();
+    for (OCDAnnot annot : this) {
+      annotationsArray.add(annot.toJson());
+    }
+
+    return annotationsArray;
   }
 
 }

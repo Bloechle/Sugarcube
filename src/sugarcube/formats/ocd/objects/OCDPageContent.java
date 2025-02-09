@@ -2,6 +2,8 @@ package sugarcube.formats.ocd.objects;
 
 import sugarcube.common.data.Zen;
 import sugarcube.common.data.collections.StringSet;
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.graphics.geom.Path3;
 import sugarcube.common.graphics.geom.Rectangle3;
 import sugarcube.common.graphics.Color3;
@@ -104,6 +106,22 @@ public class OCDPageContent extends OCDContent
       else
         Clipboard.clip(createImage(props, Color3.WHITE));
     return node;
+  }
+
+  public JsonMap toJson() {
+    JsonMap json = new JsonMap();
+
+    json.put("class", "Content");
+    json.put("type", "group");
+    json.put("nbOfPages", this.size());
+
+    JsonArray childrenArray = new JsonArray();
+    for (OCDPaintable node : this.nodes) {
+      childrenArray.add(node.toJson());
+    }
+    json.put("children", childrenArray);
+
+    return json;
   }
 
   public class State

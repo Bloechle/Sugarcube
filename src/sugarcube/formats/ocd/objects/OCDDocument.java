@@ -1,5 +1,7 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.collections.*;
 import sugarcube.common.data.Base;
@@ -620,6 +622,37 @@ public class OCDDocument extends OCDEntry implements Iterable<OCDPage>
         this.thumbHandler.freeFromMemory(force);
         this.videoHandler.freeFromMemory(force);
         this.audioHandler.freeFromMemory(force);
+    }
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap();
+
+        json.put("class", "Document");
+        json.put("type", "root");
+        json.put("jexter", "v2025.01");
+        json.put("fileName", this.fileName());
+        json.put("defaultView", viewBox == null ? OCDAnnot.ID_PAGEBOX : viewBox);
+        json.put("dpi", dpi);
+
+//        // Add metadata, manifest, and statistics if they exist
+//        if (metadata != null) json.put("metadata", metadata.toJson());
+//        if (manifest != null) json.put("manifest", manifest.toJson());
+//        if (statistics != null) json.put("statistics", statistics.toJson());
+//
+//        // Add navigation and styles
+//        if (navigation != null) json.put("navigation", navigation.toJson());
+//        if (styles != null) json.put("styles", styles.toJson());
+
+        // Add pages
+        JsonArray pagesArray = new JsonArray();
+        for (OCDPage page : this.pages()) {
+            page.ensureInMemory();
+            pagesArray.add(page.toJson());
+            page.freeFromMemory();
+        }
+        json.put("pages", pagesArray);
+
+        return json;
     }
 
     public static OCDDocument Load(File3 file)

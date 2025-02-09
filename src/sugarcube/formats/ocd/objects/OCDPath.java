@@ -1,6 +1,8 @@
 package sugarcube.formats.ocd.objects;
 
 import sugarcube.common.data.Zen;
+import sugarcube.common.data.collections.A;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.graphics.geom.*;
 import sugarcube.common.graphics.Color3;
 import sugarcube.common.graphics.Graphics3;
@@ -260,6 +262,45 @@ public class OCDPath extends OCDPaintableLeaf
     public OCDPath copy()
     {
         return copyTo(new OCDPath(parent()));
+    }
+
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap(); // Start with inherited attributes
+
+        json.put("class", "Path");
+        json.put("type", "primitive");
+        json.put("name", this.name);
+        json.put("wind", this.wind());
+
+        // Add path data
+        if (this.path() != null) {
+            json.put("d", OCD.path2xml(this.path(), null));
+        }
+
+        json.putValueIfNotZero("x", this.xCoord);
+        json.putValueIfNotZero("y", this.yCoord);
+        json.putValueIfNotZero("shearX", this.xShear);
+        json.putValueIfNotZero("shearY", this.yShear);
+        json.putValueIfNotOne("scaleX", this.xScale);
+        json.putValueIfNotOne("scaleY", this.yScale);
+
+
+        if (isFilled())
+            json.put("fillColor", Color3.toHex(this.fillColor));
+
+        if (isStroked()) {
+            json.put("strokeColor", Color3.toHex(this.strokeColor));
+            json.put("strokeWidth", this.stroke.width());
+            json.put("strokeJoin", this.stroke.join());
+            json.put("strokeCap", this.stroke.cap());
+            json.put("strokeDash", A.String(this.stroke.dash()));
+            json.putValueIfNotZero("strokePhase", this.stroke.phase());
+        }
+
+        json.put("clipId", this.clipID);
+
+        return json;
     }
 
     @Override

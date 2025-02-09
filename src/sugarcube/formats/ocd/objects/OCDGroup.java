@@ -1,5 +1,8 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.Json;
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.collections.List3;
 import sugarcube.common.data.collections.Str;
@@ -176,6 +179,18 @@ public class OCDGroup<T extends OCDPaintable> extends OCDPaintable implements It
                 box = box == null ? node.bounds().copy() : box.include(node.bounds());
         }
         return box == null ? new Rectangle3() : box;
+    }
+
+    public void writeBoundsToJson(JsonMap json)
+    {
+
+        Rectangle3 bounds = this.bounds();
+        JsonMap boundsJson = new JsonMap();
+        boundsJson.put("x", bounds.x);
+        boundsJson.put("y", bounds.y);
+        boundsJson.put("width", bounds.width);
+        boundsJson.put("height", bounds.height);
+        json.put("bounds", boundsJson);
     }
 
     public float width()
@@ -1196,6 +1211,24 @@ public class OCDGroup<T extends OCDPaintable> extends OCDPaintable implements It
             int y = (int) (shape.getBounds2D().getMaxY() - bounds.height);
             g3.draw(text, x - fontsize / 4, y + fontsize, Font3.CALIBRI_FONT.derive(fontsize).bold(), Color3.ANTHRACITE.alpha(0.8));
         }
+    }
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap();
+        // Group-specific attributes
+        json.put("type", type);
+        json.put("type", "group");
+        json.put("size", this.size());
+
+
+        // Add child nodes
+        JsonArray childrenArray = new JsonArray();
+        for (OCDPaintable node : this.nodes) {
+            childrenArray.add(node.toJson());
+        }
+        json.put("children", childrenArray);
+
+        return json;
     }
 
     public static void main(String... args)

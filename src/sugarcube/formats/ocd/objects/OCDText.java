@@ -1,5 +1,7 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.Json;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.Zen;
 import sugarcube.common.data.collections.*;
@@ -21,6 +23,7 @@ import sugarcube.formats.ocd.objects.font.SVGFont;
 import sugarcube.formats.ocd.objects.font.SVGGlyph;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class OCDText extends OCDPaintableLeaf {
@@ -1553,6 +1556,52 @@ public class OCDText extends OCDPaintableLeaf {
 
     public static OCDText Cast(Object o) {
         return o instanceof OCDText ? (OCDText) o : null;
+    }
+
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap(); // Start with inherited attributes
+
+        json.put("class", "Text");
+        json.put("type", "primitive");
+        json.put("fontName", this.fontname());
+        json.put("fontSize", this.fontsize());
+        json.put("content", this.string());
+        json.putIfTrue("bold", this.isBold());
+        json.putIfTrue("italic", this.isItalic());
+        json.putIfTrue("subscript", this.isSubscript());
+        json.putIfTrue("superscript", this.isSuperscript());
+
+        // Character spacing
+        json.put("charSpacing", this.meanCS());
+        json.putValueIfNotZero("scriptDx", this.scriptDx());
+        json.putValueIfNotZero("scriptDy", this.scriptDy());
+        json.putValueIfNotOne("scriptScale", this.scriptScale());
+
+        json.putValueIfNotZero("x", this.xCoord);
+        json.putValueIfNotZero("y", this.yCoord);
+        json.putValueIfNotZero("shearX", this.xShear);
+        json.putValueIfNotZero("shearY", this.yShear);
+        json.putValueIfNotOne("scaleX", this.xScale);
+        json.putValueIfNotOne("scaleY", this.yScale);
+
+
+        if (isFilled())
+            json.put("fillColor", Color3.toHex(this.fillColor));
+
+        if (isStroked()) {
+            json.put("strokeColor", Color3.toHex(this.strokeColor));
+            json.put("strokeWidth", this.stroke.width());
+            json.put("strokeJoin", this.stroke.join());
+            json.put("strokeCap", this.stroke.cap());
+            json.put("strokeDash", A.String(this.stroke.dash()));
+            json.putValueIfNotZero("strokePhase", this.stroke.phase());
+        }
+
+        json.put("clipId", this.clipID);
+
+
+        return json;
     }
 
 

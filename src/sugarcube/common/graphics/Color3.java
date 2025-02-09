@@ -873,6 +873,21 @@ public class Color3 extends Color implements Unjammable
     return gradient;
   }
 
+  public static String toHex(int argb) {
+    int alpha = (argb >> 24) & 0xFF;
+    int red = (argb >> 16) & 0xFF;
+    int green = (argb >> 8) & 0xFF;
+    int blue = argb & 0xFF;
+
+    // If alpha is 255 (fully opaque), return #RRGGBB; otherwise, return #AARRGGBB
+    if (alpha == 255) {
+      return String.format("#%02X%02X%02X", red, green, blue);
+    } else {
+      return String.format("#%02X%02X%02X%02X", alpha, red, green, blue);
+    }
+  }
+
+
   public static void main(String... args)
   {
     int width = 1000;

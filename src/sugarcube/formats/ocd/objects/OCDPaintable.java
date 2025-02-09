@@ -1,5 +1,6 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.reflection.Annot._Bean;
 import sugarcube.common.data.collections.*;
 import sugarcube.common.graphics.geom.Line3;
@@ -731,5 +732,23 @@ public class OCDPaintable extends OCDNode
     public OCDPaintable copy()
     {
         return this;
+    }
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap();
+
+        json.put("class", this.getClass().getSimpleName());
+        json.put("name", this.name);
+
+        // Bounding box
+        Rectangle3 bounds = this.bounds();
+        JsonMap boundsJson = new JsonMap();
+        boundsJson.put("x", bounds.x);
+        boundsJson.put("y", bounds.y);
+        boundsJson.put("width", bounds.width);
+        boundsJson.put("height", bounds.height);
+        json.put("bounds", boundsJson);
+
+        return json;
     }
 }

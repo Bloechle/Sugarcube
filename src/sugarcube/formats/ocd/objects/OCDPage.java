@@ -1,5 +1,6 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.Zen;
 import sugarcube.common.data.collections.*;
@@ -1290,12 +1291,29 @@ public class OCDPage extends OCDEntry
         // }
         // else
         // Log.warn(this, ".addBackground - img not found: "+file.path());
-
     }
 
     public OCDAnnot addAnnotation(String id, String type, Rectangle3 box)
     {
         return annots().addAnnotation(id, type, box);
+    }
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap();
+
+        json.put("class", "Page");
+        json.put("type" , "page");
+        json.put("pageNumber",pageNb());
+        json.put("width", width);
+        json.put("height", height);
+
+
+        // Add content, annotations, and definitions if they exist
+        if (annotations != null) json.put("annotations", annotations.toJson());
+        if (definitions != null) json.put("definitions", definitions.toJson());
+        if (content != null) json.put("content", content.toJson());
+
+        return json;
     }
 
     @Override

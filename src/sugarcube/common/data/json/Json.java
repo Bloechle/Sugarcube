@@ -20,10 +20,12 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Json
 {
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.####");
     public static Set3<Class> RAW_TYPES = new Set3<>(String.class, float.class, Float.class, double.class, Double.class, int.class, Integer.class, boolean.class, Boolean.class,
             PBool.class);
     public static boolean NO_NULL = true;
@@ -209,7 +211,7 @@ public class Json
             if (((Float) value).isInfinite() || ((Float) value).isNaN())
                 out.write("null");
             else
-                out.write(value.toString());
+                out.write(DECIMAL_FORMAT.format(value));
             return;
         }
 

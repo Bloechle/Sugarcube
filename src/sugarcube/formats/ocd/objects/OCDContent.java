@@ -1,5 +1,7 @@
 package sugarcube.formats.ocd.objects;
 
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.collections.Str;
 import sugarcube.common.data.collections.StringOccurrences;
@@ -249,4 +251,21 @@ public class OCDContent extends OCDGroup<OCDPaintable> implements Iterable<OCDPa
     String id = this.id();
     return "Content[" + type + (hasLabel() ? ", label=" + label() : "") + "]" + (id == null ? "" : " #" + id);
   }
+
+  public JsonMap toJson() {
+    JsonMap json = new JsonMap();
+
+    json.put("class", "Content");
+    json.put("type", "group");
+    json.put("nbOfPages", this.size());
+
+    JsonArray childrenArray = new JsonArray();
+    for (OCDPaintable node : this.nodes) {
+      childrenArray.add(node.toJson());
+    }
+    json.put("children", childrenArray);
+
+    return json;
+  }
+
 }

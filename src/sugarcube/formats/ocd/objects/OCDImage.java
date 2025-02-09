@@ -1,6 +1,8 @@
 package sugarcube.formats.ocd.objects;
 
 import javafx.scene.image.Image;
+import sugarcube.common.data.collections.A;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.system.log.Log;
 import sugarcube.common.data.Zen;
 import sugarcube.common.data.Base;
@@ -25,6 +27,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -571,6 +574,55 @@ public class OCDImage extends OCDPaintableLeaf
         }
         return false;
     }
+
+    public JsonMap toJson() {
+        JsonMap json = new JsonMap(); // Start with inherited attributes
+
+        json.put("class", "Image");
+        json.put("type", "primitive");
+        // Image-specific attributes
+        json.put("source", filename);
+        json.put("width", this.width());
+        json.put("height", this.height());
+
+        json.putValueIfNotZero("x", this.xCoord);
+        json.putValueIfNotZero("y", this.yCoord);
+        json.putValueIfNotZero("shearX", this.xShear);
+        json.putValueIfNotZero("shearY", this.yShear);
+        json.putValueIfNotOne("scaleX", this.xScale);
+        json.putValueIfNotOne("scaleY", this.yScale);
+
+
+        if (isFilled())
+            json.put("fillColor", Color3.toHex(this.fillColor));
+
+        if (isStroked()) {
+            json.put("strokeColor", Color3.toHex(this.strokeColor));
+            json.put("strokeWidth", this.stroke.width());
+            json.put("strokeJoin", this.stroke.join());
+            json.put("strokeCap", this.stroke.cap());
+            json.put("strokeDash", A.String(this.stroke.dash()));
+            json.putValueIfNotZero("strokePhase", this.stroke.phase());
+        }
+
+        json.put("clipId", this.clipID);
+
+        // Inline Base64 image data
+        byte[] imageData = data();
+        if (imageData != null && imageData.length > 0) {
+            String base64Image = Base64.getEncoder().encodeToString(imageData);
+            String mimeType = isPNG() ? "image/png" : "image/jpeg";
+            json.put("imageData", "data:" + mimeType + ";base64," + base64Image);
+        }
+        data=null;
+
+
+        // Optional properties
+        if (this.hasAlpha()) json.put("hasAlpha", true);
+
+        return json;
+    }
+
 
     @Override
     public String toString()

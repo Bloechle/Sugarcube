@@ -3,6 +3,9 @@ package sugarcube.formats.ocd.objects;
 import sugarcube.common.data.collections.List3;
 import sugarcube.common.data.collections.Map3;
 import sugarcube.common.data.collections.StringSet;
+import sugarcube.common.data.json.Json;
+import sugarcube.common.data.json.JsonArray;
+import sugarcube.common.data.json.JsonMap;
 import sugarcube.common.graphics.Graphics3;
 import sugarcube.common.data.xml.DomNode;
 import sugarcube.common.data.xml.Xml;
@@ -138,4 +141,16 @@ public class OCDDefinitions extends OCDNode implements Iterable<OCDPaintable>
   {
     return this.defs.values().iterator();
   }
+
+  public JsonArray toJson() {
+
+    // Definitions collection
+    JsonArray definitionsArray = new JsonArray();
+    for (OCDPaintable def : this.defs.values()) {
+      definitionsArray.add(def.toJson());
+    }
+
+    return definitionsArray;
+  }
+
 }
